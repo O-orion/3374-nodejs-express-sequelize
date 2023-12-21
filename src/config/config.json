@@ -1,10 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "1234",
-    "database": "projetoNode",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "sqlite",
+    "storage": "./database.sqlite"
   },
   "test": {
     "username": "root",
@@ -16,7 +13,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "database_production", 
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
