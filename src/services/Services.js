@@ -23,6 +23,19 @@ class Service {
 
     return true;
   }
+
+  async getOneRecordById(id) {
+    return dataSource[this.model].findByPk(id);
+  }
+
+  async createRegistry(dadosDoRegistro) {
+    return dataSource[this.model].create(dadosDoRegistro);
+  }
+
+  async deleteRegistry(id) {
+    return dataSource[this.model].destroy({ where: { id: id } });
+  }
+
 }
 
 module.exports = Service;
