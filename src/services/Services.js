@@ -25,15 +25,16 @@ class Service {
   }
 
   async getOneRecordById(id) {
-    return dataSource[this.model].findByPk(id);
+    return dataSource[this.modelo].findByPk(id);
   }
 
   async createRegistry(dadosDoRegistro) {
-    return dataSource[this.model].create(dadosDoRegistro);
+    let dados = dataSource[this.modelo].create(dadosDoRegistro);
+    return dados;
   }
 
   async deleteRegistry(id) {
-    return dataSource[this.model].destroy({ where: { id: id } });
+    return dataSource[this.modelo].destroy({ where: { id: id } });
   }
 
 }

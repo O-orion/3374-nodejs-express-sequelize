@@ -35,7 +35,7 @@ class Controller {
     async getOneById(req, res) {
         const { id } = req.params;
         try {
-            const umRegistro = await this.entidadeService.pegaUmRegistroPorId(Number(id));
+            const umRegistro = await this.entidadeService.getOneRecordById(Number(id));
             return res.status(200).json(umRegistro);
      } catch (erro) {
        // erro
@@ -44,8 +44,9 @@ class Controller {
 
    async createNew(req, res) {
      const dadosParaCriacao = req.body;
+     console.log(dadosParaCriacao);
      try {
-            const novoRegistroCriado = await this.entidadeService.criaRegistro(dadosParaCriacao);
+            const novoRegistroCriado = await this.entidadeService.createRegistry(dadosParaCriacao);
             return res.status(200).json(novoRegistroCriado);
      } catch (erro) {
        // erro
@@ -55,7 +56,7 @@ class Controller {
    async delete(req, res) {
     const { id } = req.params;
         try {
-            await this.entidadeService.excluiRegistro(Number(id));
+            await this.entidadeService.deleteRegistry(Number(id));
             return res.status(200).json({ mensagem: `id ${id} deletado` });
         } catch (error) {
             return res.status(500).json(error.message);
