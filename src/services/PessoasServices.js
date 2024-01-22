@@ -10,11 +10,14 @@ class PessoaServices extends Services {
 
     async pegarMatriculasPorEstudante(id) {
         const estudante = await super.getOneRecordById(id);
-        console.log(id);
-        console.log(estudante);
         const listaMatriculas = await estudante.getAulasMatriculadas();
 
         return listaMatriculas;
+    }
+
+    async pegarTodos() {
+        const todosAlunos = await super.pegarTodosAlunos('todasAsPessoas');
+        return todosAlunos;
     }
 }
 

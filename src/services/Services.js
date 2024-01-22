@@ -37,6 +37,11 @@ class Service {
     return dataSource[this.modelo].destroy({ where: { id: id } });
   }
 
+  async pegarTodosAlunos(scopo) {
+    const alunos = dataSource[this.modelo].scope.findAll();
+    return alunos;
+  }
+
 }
 
 module.exports = Service;

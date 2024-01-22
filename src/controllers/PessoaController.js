@@ -26,6 +26,15 @@ class PessoaController extends Controller {
         }
     }
 
+    async pegarTodasMatriculas(req, res) {
+        try {
+            const listaTodasAsMatriculas = await pessoasServices.pegarTodosAlunos();
+            return res.status(200).json(listaTodasAsMatriculas);
+        } catch (error) {
+            return res.status(500).json({'mensagem': error});
+        }
+    }
+
 }
 
 module.exports = PessoaController;
