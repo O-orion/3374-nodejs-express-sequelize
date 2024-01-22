@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
           args: [3],
           msg: 'O atributo nome deve possuir no mínimo 3 caracteres!'
         }
-      }
+      },
+      unique: true
     },
     email: {
       type: DataTypes.STRING,
@@ -36,8 +37,9 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: {
           args: true,
           msg: 'Formato de e-mail inválido!'
-        }
-      }
+        },
+      },
+      unique: true
     },
     cpf:  {
       type: DataTypes.STRING,
