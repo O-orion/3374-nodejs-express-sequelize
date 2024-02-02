@@ -19,6 +19,17 @@ class PessoaServices extends Services {
         const todosAlunos = await super.pegarTodosAlunos('todasAsPessoas');
         return todosAlunos;
     }
+
+    async pegarTodasMatriculas(id) {
+        try {
+            const estudante = await super.getOneRecordById(id);
+            const listaMatriculasEstudante = await estudante.getTodasMatriculas();
+            return listaMatriculasEstudante;
+        } catch (error) {
+            return error;
+        }
+    }
+
 }
 
 module.exports = PessoaServices;
