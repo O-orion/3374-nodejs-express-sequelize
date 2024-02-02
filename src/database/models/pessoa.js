@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         scope: { status: 'matriculado' },
         as: 'aulasMatriculadas'
       });
+
+      // adicionando nova associação que retorna todos os usuários;
+      Pessoa.hasMany(models.Matricula, {
+        foreignKey: 'estudante_id',
+        as: 'todasMatriculas'
+      });
     }
   }
 
@@ -29,7 +35,6 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'O atributo nome deve possuir no mínimo 3 caracteres!'
         }
       },
-      unique: true
     },
     email: {
       type: DataTypes.STRING,
@@ -47,7 +52,8 @@ module.exports = (sequelize, DataTypes) => {
         cpfValido: (cpf) => {
           if (!cpfEValido(cpf)) throw new Error('CPF Inválido!');
         }
-      }
+      },
+      unique: true
     },
     ativo: DataTypes.BOOLEAN,
     role: DataTypes.STRING
