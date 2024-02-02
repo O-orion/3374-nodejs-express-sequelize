@@ -42,6 +42,16 @@ class Service {
     return alunos;
   }
 
+  async pegarUm(where) {
+    const umRegistro = dataSource[this.modelo].findOne({
+      where: {
+        ...where
+      }
+    });
+
+    return umRegistro;
+  }
+
 }
 
 module.exports = Service;

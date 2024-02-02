@@ -30,6 +30,17 @@ class PessoaServices extends Services {
         }
     }
 
+    async pegarUmRegistro(where) {
+        try {
+            const registro = await super.pegarUm(where);
+            return registro ;
+        } catch (error) {
+            return error;
+        }
+    }
+
+
+
 }
 
 module.exports = PessoaServices;
